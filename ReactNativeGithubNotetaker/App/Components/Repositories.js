@@ -1,7 +1,7 @@
 var React = require('react-native');
 var Badge = require('./Badge');
 var Separator = require('./Helpers/Separator');
-// var Web_View = require('./Helpers/WebView');
+var WebView = require('./Helpers/WebView');
 
 var {
   ScrollView,
@@ -38,7 +38,11 @@ var styles = StyleSheet.create({
 
 class Repositories extends React.Component{
   openPage(url){
-    console.log("the url is ", url);
+    this.props.navigator.push({
+      component: WebView,
+      title: 'Web view',
+      passProps: {url}
+    });
   }
   render(){
     console.log("this.props ", this.props);
